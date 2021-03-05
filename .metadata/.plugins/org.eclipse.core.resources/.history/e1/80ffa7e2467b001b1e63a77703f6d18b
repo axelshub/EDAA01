@@ -1,0 +1,70 @@
+package sudoku;
+
+public class Sudoku implements SudokuSolver {
+	int[][] table;
+	boolean[][] checkTable;
+	
+	public Sudoku(int[][] solveThis) {
+		table = solveThis;
+		checkTable = new boolean[9][9];
+	}
+
+	@Override
+	public void setNumber(int r, int c, int nbr) {
+		// TODO Auto-generated method stub
+		table[r][c] = nbr;
+
+	}
+
+	@Override
+	public int getNumber(int r, int c) {
+		// TODO Auto-generated method stub
+		return table[r][c];
+	}
+
+	@Override
+	public void clearNumber(int r, int c) {
+		// TODO Auto-generated method stub
+		table[r][c] = 0;
+	}
+
+	@Override
+	public boolean isValid(int r, int c, int nbr) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAllValid() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean solve() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+		for(int r = 0; r < table.length; r++) {
+			for(int c = 0; c < table[r].length; c++) {
+				table[r][c] = 0;			}
+		}
+
+	}
+
+	@Override
+	public int[][] getMatrix() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setMatrix(int[][] nbrs) {
+		// TODO Auto-generated method stub
+
+	}
+}

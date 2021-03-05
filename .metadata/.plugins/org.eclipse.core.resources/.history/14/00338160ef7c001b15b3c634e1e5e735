@@ -1,0 +1,90 @@
+package sudoku;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class SudokuTest {
+	
+	private SudokuSolver sudoku;
+	
+
+	@BeforeEach
+	void setUp() throws Exception {
+		sudoku = new Sudoku();
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+		sudoku = null;
+	}
+
+	@Test
+	void testSolve() {
+		//Test empty sudoku:
+		int[][] emptySudoku = new int[][] {
+			{0, 0, 0, 0, 0, 0, 0, 0, 0 },
+			{0, 0, 0, 0, 0, 0, 0, 0, 0 },
+			{0, 0, 0, 0, 0, 0, 0, 0, 0 },
+			{0, 0, 0, 0, 0, 0, 0, 0, 0 },
+			{0, 0, 0, 0, 0, 0, 0, 0, 0 },
+			{0, 0, 0, 0, 0, 0, 0, 0, 0 },
+			{0, 0, 0, 0, 0, 0, 0, 0, 0 },
+			{0, 0, 0, 0, 0, 0, 0, 0, 0 },
+			{0, 0, 0, 0, 0, 0, 0, 0, 0 },
+		};
+		sudoku.setMatrix(emptySudoku);
+		assertTrue(sudoku.solve());
+		
+		//Test example sudoku:
+		sudoku.clear();
+		int[][] testSudoku = new int[][] {
+			{0, 0, 8, 0, 0, 9, 0, 6, 2 },
+			{0, 0, 0, 0, 0, 0, 0, 0, 5 },
+			{1, 0, 2, 5, 0, 0, 0, 0, 0 },
+			{0, 0, 0, 2, 1, 0, 0, 9, 0 },
+			{0, 5, 0, 0, 0, 0, 6, 0, 0 },
+			{6, 0, 0, 0, 0, 0, 0, 2, 8 },
+			{4, 1, 0, 6, 0, 8, 0, 0, 0 },
+			{8, 6, 0, 0, 3, 0, 1, 0, 0 },
+			{0, 0, 0, 0, 0, 0, 4, 0, 0 },
+		};
+		sudoku.setMatrix(testSudoku);
+		assertTrue(sudoku.solve());
+//		
+//		//Test unsolvable sudoku 1:
+//		sudoku.clear();
+//		int[][] unsolvableSudoku1 = new int[][] {
+//			{2, 0, 0, 9, 0, 0, 0, 0, 0 },
+//			{0, 0, 0, 0, 0, 0, 0, 6, 0 },
+//			{0, 0, 0, 0, 0, 1, 0, 0, 0 },
+//			{5, 0, 2, 6, 0, 0, 4, 0, 7 },
+//			{0, 0, 0, 0, 0, 4, 1, 0, 0 },
+//			{0, 0, 0, 0, 9, 8, 0, 2, 3 },
+//			{0, 0, 0, 0, 0, 3, 0, 8, 0 },
+//			{0, 0, 5, 0, 1, 0, 0, 0, 0 },
+//			{0, 0, 7, 0, 0, 0, 0, 0, 0 },
+//		};
+//		sudoku.setMatrix(unsolvableSudoku1);
+//		assertFalse(sudoku.solve());
+//
+//		//Test unsolvable sudoku 1:
+//		sudoku.clear();
+//		int[][] unsolvableSudoku2 = new int[][] {
+//			{0, 2, 3, 0, 0, 0, 0, 0, 1 },
+//			{4, 5, 6, 0, 0, 0, 0, 0, 0 },
+//			{7, 8, 9, 0, 0, 0, 0, 0, 0 },
+//			{0, 0, 0, 0, 0, 0, 0, 0, 0 },
+//			{0, 0, 0, 0, 0, 0, 0, 0, 0 },
+//			{0, 0, 0, 0, 0, 0, 0, 0, 0 },
+//			{0, 0, 0, 0, 0, 0, 0, 0, 0 },
+//			{0, 0, 0, 0, 0, 0, 0, 0, 0 },
+//			{0, 0, 0, 0, 0, 0, 0, 0, 0 },
+//		};
+//		sudoku.setMatrix(unsolvableSudoku2);
+//		assertFalse(sudoku.solve());
+	}
+	
+}
